@@ -14,7 +14,6 @@ public class DinnerConstructor {
         this.dishInfo = new HashMap<>();
     }
 
-
     public void addNewDish(String dishType, String dishName) {
 
         if (dishInfo.containsKey(dishType)) {
@@ -29,8 +28,17 @@ public class DinnerConstructor {
         System.out.printf("Добавлено блюдо %s для типа %s%n", dishName, dishType);
     }
 
-    public HashMap<String, ArrayList<String>> generateDishCombo(int numberOfCombos, ArrayList<String> dishTypes) {
+    public ArrayList<String> generateDishCombo(ArrayList<String> dishTypes) {
+        ArrayList<String> combo = new ArrayList<>();
 
-        return dishInfo;
+
+        for (String dishType : dishTypes) {
+            int randomIndexBound = dishInfo.get(dishType).size();
+            int randomIndex = random.nextInt(randomIndexBound);
+            String dishName = dishInfo.get(dishType).get(randomIndex);
+            combo.add(dishName);
+        }
+
+        return combo;
     }
 }

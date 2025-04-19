@@ -61,17 +61,15 @@ public class Main {
         String nextItem = scanner.nextLine();
 
         ArrayList<String> dishTypes = new ArrayList<>();
-        //реализуйте ввод типов блюд
         while (!nextItem.isEmpty()) {
             dishTypes.add(nextItem);
             nextItem = scanner.nextLine();
         }
 
-        HashMap<String, ArrayList<String>> combos = dinnerConstructor.generateDishCombo(numberOfCombos, dishTypes);
-
-        for (String dishType : combos.keySet()) {
-            System.out.println(dishType);
-            System.out.println(combos.get(dishType));
+        for (int i = 1; i <= numberOfCombos; i++) {
+            System.out.printf("Комбо %d%n", i);
+            ArrayList<String> combo = dinnerConstructor.generateDishCombo(dishTypes);
+            System.out.println(combo);
         }
 
     }
