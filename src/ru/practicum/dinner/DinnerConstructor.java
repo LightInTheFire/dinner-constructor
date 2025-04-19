@@ -1,8 +1,6 @@
 package ru.practicum.dinner;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Random;
+import java.util.*;
 
 public class DinnerConstructor {
 
@@ -28,8 +26,12 @@ public class DinnerConstructor {
         System.out.printf("Добавлено блюдо %s для типа %s%n", dishName, dishType);
     }
 
-    public ArrayList<String> generateDishCombo(ArrayList<String> dishTypes) {
-        ArrayList<String> combo = new ArrayList<>();
+    public Collection<String> getDishTypes() {
+        return dishInfo.keySet();
+    }
+
+    public List<String> generateDishCombo(List<String> dishTypes) {
+        List<String> combo = new ArrayList<>();
 
 
         for (String dishType : dishTypes) {

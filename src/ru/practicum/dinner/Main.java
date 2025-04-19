@@ -1,6 +1,7 @@
 package ru.practicum.dinner;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -55,11 +56,12 @@ public class Main {
         int numberOfCombos = scanner.nextInt();
         scanner.nextLine(); //flush buffer
 
+        System.out.printf("Доступные типы блюд - %s%n", dinnerConstructor.getDishTypes());
         System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter)." +
                 " Для завершения ввода введите пустую строку");
         String nextItem = scanner.nextLine();
 
-        ArrayList<String> dishTypes = new ArrayList<>();
+        List<String> dishTypes = new ArrayList<>();
         while (!nextItem.isEmpty()) {
             dishTypes.add(nextItem);
             nextItem = scanner.nextLine();
@@ -67,7 +69,7 @@ public class Main {
 
         for (int i = 1; i <= numberOfCombos; i++) {
             System.out.printf("Комбо %d%n", i);
-            ArrayList<String> combo = dinnerConstructor.generateDishCombo(dishTypes);
+            List<String> combo = dinnerConstructor.generateDishCombo(dishTypes);
             System.out.println(combo);
         }
 
