@@ -3,6 +3,9 @@ package ru.practicum.dinner;
 import java.util.Scanner;
 
 public class Main {
+    public static final String COMMAND_ADD_NEW_DISH = "1";
+    public static final String COMMAND_GENERATE_DISH_COMBINATION = "2";
+    public static final String COMMAND_EXIT = "3";
 
     static DinnerConstructor dc;
     static Scanner scanner;
