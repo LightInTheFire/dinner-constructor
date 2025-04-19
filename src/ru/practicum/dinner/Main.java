@@ -56,7 +56,8 @@ public class Main {
         int numberOfCombos = scanner.nextInt();
         scanner.nextLine(); //flush buffer
 
-        System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter). Для завершения ввода введите пустую строку");
+        System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter)." +
+                " Для завершения ввода введите пустую строку");
         String nextItem = scanner.nextLine();
 
         ArrayList<String> dishTypes = new ArrayList<>();
