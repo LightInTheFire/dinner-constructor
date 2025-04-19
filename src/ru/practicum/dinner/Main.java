@@ -1,32 +1,31 @@
 package ru.practicum.dinner;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
+
     public static final String COMMAND_ADD_NEW_DISH = "1";
     public static final String COMMAND_GENERATE_DISH_COMBINATION = "2";
     public static final String COMMAND_EXIT = "3";
 
-    static DinnerConstructor dc;
-    static Scanner scanner;
+    public static final Scanner scanner = new Scanner(System.in);
+    public static final DinnerConstructor dinnerConstructor = new DinnerConstructor(new Random());
 
     public static void main(String[] args) {
-        dc = new DinnerConstructor();
-        scanner = new Scanner(System.in);
 
         while (true) {
             printMenu();
             String command = scanner.nextLine();
 
             switch (command) {
-                case "1":
-                    addNewDish();
-                    break;
-                case "2":
-                    generateDishCombo();
-                    break;
-                case "3":
+                case COMMAND_ADD_NEW_DISH -> addNewDish();
+                case COMMAND_GENERATE_DISH_COMBINATION -> generateDishCombo();
+                case COMMAND_EXIT -> {
+                    System.out.println("Выход из приложения");
                     return;
+                }
+                default -> System.out.println("Такой командый не существует!");
             }
         }
     }
@@ -40,10 +39,11 @@ public class Main {
 
     private static void addNewDish() {
         System.out.println("Введите тип блюда:");
-        String dishType = scanner.nextLine();
+        String dishType = scanner.nextLine().trim();
         System.out.println("Введите название блюда:");
-        String dishName = scanner.nextLine();
+        String dishName = scanner.nextLine().trim();
 
+        dinnerConstructor.addNewDish(dishType, dishName);
         // добавьте новое блюдо
     }
 
@@ -52,14 +52,14 @@ public class Main {
 
         System.out.println("Введите количество наборов, которые нужно сгенерировать:");
         int numberOfCombos = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); //flush buffer
 
         System.out.println("Вводите типы блюда, разделяя символом переноса строки (enter). Для завершения ввода введите пустую строку");
         String nextItem = scanner.nextLine();
 
         //реализуйте ввод типов блюд
         while (!nextItem.isEmpty()) {
-
+            nextItem = scanner.nextLine();
         }
 
         // сгенерируйте комбинации блюд и выведите на экран
