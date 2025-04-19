@@ -63,7 +63,11 @@ public class Main {
 
         List<String> dishTypes = new ArrayList<>();
         while (!nextItem.isEmpty()) {
-            dishTypes.add(nextItem);
+            if (dinnerConstructor.isTypeValid(nextItem)) {
+                dishTypes.add(nextItem);
+            } else {
+                System.out.println("Такого типа блюда нет в списке.");
+            }
             nextItem = scanner.nextLine();
         }
 

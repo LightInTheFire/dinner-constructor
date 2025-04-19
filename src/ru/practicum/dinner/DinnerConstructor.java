@@ -26,6 +26,9 @@ public class DinnerConstructor {
         System.out.printf("Добавлено блюдо %s для типа %s%n", dishName, dishType);
     }
 
+    public boolean isTypeValid(String type) {
+        return dishInfo.containsKey(type);
+    }
     public Collection<String> getDishTypes() {
         return dishInfo.keySet();
     }
