@@ -5,7 +5,7 @@ import java.util.*;
 public class DinnerConstructor {
 
     private final Random random;
-    private final HashMap<String, ArrayList<String>> dishInfo;
+    private final Map<String, ArrayList<String>> dishInfo;
 
     public DinnerConstructor(Random random) {
         this.random = random;
@@ -29,7 +29,8 @@ public class DinnerConstructor {
     public boolean isTypeValid(String type) {
         return dishInfo.containsKey(type);
     }
-    public Collection<String> getDishTypes() {
+
+    public Set<String> getDishTypes() {
         return dishInfo.keySet();
     }
 
